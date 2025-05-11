@@ -47,6 +47,15 @@ class Validator
         }
     }
 
+    private function parseRule(string $rule): array
+    {
+        $parts = explode(':', $rule, 2);
+        $name = $parts[0];
+        $params = isset($parts[1]) ? explode(',', $parts[1]) : [];
+
+        return [$name, $params];
+    }
+
     private function applyRule(string $field, string $rule): void
     {
         [$ruleName, $params] = $this->parseRule($rule);
@@ -76,7 +85,8 @@ class Validator
     private static function registerDefaultRules(): void
     {
         self::registerRule(\PhpValidator\Rules\Required::class);
-//        self::registerRule(\PhpValidator\Rules\Min::class);
+        self::registerRule(\PhpValidator\Rules\Min::class);
+        // Другие правила...
     }
 
     public static function registerRule(string $ruleClass): void
