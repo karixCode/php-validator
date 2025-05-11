@@ -11,6 +11,8 @@ class Min
     public static function validate($value, array $params = []): bool
     {
         $minLength = (int)$params[0] || 0;
+        echo $value;
+        echo $minLength;
         return strlen($value ?? '') >= $minLength;
     }
 
