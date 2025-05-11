@@ -9,7 +9,7 @@ class Required
         return 'required';
     }
 
-    public static function validate($value, array $params = []): bool
+    public static function validate($value): bool
     {
         return !empty($value);
     }
