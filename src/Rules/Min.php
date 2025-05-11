@@ -13,4 +13,9 @@ class Min
         $minLength = (int)$params[0] || 0;
         return strlen($value ?? '') >= $minLength;
     }
+
+    public static function message(): string
+    {
+        return 'Поле :field слишком короткое';
+    }
 }
