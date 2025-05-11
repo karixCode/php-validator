@@ -1,21 +1,21 @@
 <?php
 namespace PhpValidator\Rules;
 
-class Min
+class Max
 {
     public static function name(): string
     {
-        return 'min';
+        return 'max';
     }
 
     public static function validate($value, array $params = []): bool
     {
-        $minLength = (int)$params[0];
-        return strlen($value) >= $minLength;
+        $maxLength = (int)$params[0];
+        return strlen($value) <= $maxLength;
     }
 
     public static function message(): string
     {
-        return 'Поле :field слишком короткое';
+        return 'Поле :field слишком длинное';
     }
 }
